@@ -23,9 +23,9 @@ public interface HolidayService {
 
     List<Holiday> findHolidaysByRange(String beginDate, String endDate, boolean include);
 
-    List<Holiday> findClosestHolidayByDate(String date, boolean forward);
+    Holiday findClosestHolidayByDate(String date, boolean forward);
 
-    List<Holiday> findClosestHolidayByDate(String date, boolean forward, String type);
+    Holiday findClosestHolidayByDate(String date, boolean forward, String type);
 
     List<UserRole> findUserRoles();
 

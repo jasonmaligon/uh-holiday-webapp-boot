@@ -107,13 +107,12 @@ public class HolidayRestController {
     }
 
     @GetMapping(value = "api/holidays/closest", params = {"date", "search-forward", "type"})
-    public ResponseEntity<JsonData<List<Holiday>>> holidaysByClosest(
+    public ResponseEntity<JsonData<Holiday>> holidaysByClosest(
             @RequestParam("date") String date,
             @RequestParam(value = "search-forward", defaultValue = "true", required = false) boolean forward,
             @RequestParam(value = "type", defaultValue = "uh") String type) {
-        List<Holiday> holidays = holidayService.findClosestHolidayByDate(date, forward, type);
-        holidays = holidayService.findHolidaysByType(holidays, type);
-        JsonData<List<Holiday>> data = new JsonData<>(holidays);
+        Holiday holiday = holidayService.findClosestHolidayByDate(date, forward, type);
+        JsonData<Holiday> data = new JsonData<>(holiday);
         return ResponseEntity
                 .ok()
                 .body(data);
