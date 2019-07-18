@@ -243,10 +243,6 @@ public class HolidayServiceTest {
         holiday = holidayService.findClosestHolidayByDate("2019-12-26", false, "uh");
         assertThat(holiday.getDescription(), equalTo("Christmas"));
 
-        /* Tested on June 26, 2019 (Dates.newLocalDate()) */
-//        holiday = holidayService.findClosestHolidayByDate(Dates.newLocalDate().toString(), true, "uh");
-//        assertThat(holiday.getDescription(), equalTo("Independence Day"));
-
         holiday = holidayService.findClosestHolidayByDate("2019-06-26", true, "state");
         assertThat(holiday.getDescription(), equalTo("Statehood Day"));
 
@@ -282,10 +278,6 @@ public class HolidayServiceTest {
 
         holiday = holidayService.findClosestHolidayByDate("2019-12-26", false);
         assertThat(holiday.getDescription(), equalTo("Christmas"));
-
-        /* Tested on June 26, 2019 (Dates.newLocalDate()) */
-//        holiday = holidayService.findClosestHolidayByDate(Dates.newLocalDate().toString(), true);
-//        assertThat(holiday.getDescription(), equalTo("Independence Day"));
     }
 
     @Test

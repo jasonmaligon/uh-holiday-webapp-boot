@@ -11,7 +11,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
-import java.time.temporal.ChronoUnit;
 
 public final class Dates {
 
@@ -23,14 +22,16 @@ public final class Dates {
         // Empty.
     }
 
-    public static long compareDates(LocalDate date1, LocalDate date2){
+    public static long compareDates(LocalDate date1, LocalDate date2) {
         return ChronoUnit.DAYS.between(date1, date2);
     }
 
-    public static LocalDate newLocalDate() { return LocalDate.now();
+    public static LocalDate newLocalDate() {
+        return LocalDate.now();
     }
 
-    public static LocalDate newLocalDate(int year, Month month, int day) { return LocalDate.of(year, month, day);
+    public static LocalDate newLocalDate(int year, Month month, int day) {
+        return LocalDate.of(year, month, day);
     }
 
     public static Month month(LocalDate date) {
