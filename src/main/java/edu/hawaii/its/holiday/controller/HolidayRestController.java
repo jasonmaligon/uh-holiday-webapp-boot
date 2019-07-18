@@ -18,10 +18,8 @@ import edu.hawaii.its.holiday.type.Type;
 public class HolidayRestController {
 
     private static final Logger logger = LoggerFactory.getLogger(HolidayRestController.class);
-
     @Autowired
     private HolidayService holidayService;
-
     @GetMapping(value = "/api/holidays")
     public ResponseEntity<JsonData<List<Holiday>>> holidays() {
         logger.debug("Entered REST holidays...");
