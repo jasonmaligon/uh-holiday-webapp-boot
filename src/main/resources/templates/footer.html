@@ -1,7 +1,23 @@
-<footer  class="footer" th:fragment="copy">
-   <div class="container">
-       <span class='uh-branding-one'>University</span>
-       <span class='uh-branding-two'>of&nbsp;</span>
-       <span class='uh-branding-one'>Hawai&#8216;i</span>
-   </div>
+<footer class="footer" th:fragment="copy">
+    <div class="container">
+        <span class='uh-branding-one'>University</span>
+        <span class='uh-branding-two'>of&nbsp;</span>
+        <span class='uh-branding-one'>Hawai&#8216;i</span>
+    </div>
+
+    <script type="text/javascript" th:src="@{/webjars/angularjs/angular.min.js}"></script>
+    <script type="text/javascript" th:src="@{/javascript/holiday.app.js?v=101}"></script>
+    <script type="text/javascript" th:src="@{/javascript/holiday.service.js?v=101}"></script>
+    <script type="text/javascript" th:src="@{/javascript/holiday.controller.js?v=101}"></script>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" th:src="@{/webjars/html5shiv/3.7.3/html5shiv.min.js}"
+            src="webjars/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script type="text/javascript" th:src="@{/webjars/respond/1.4.2/dest/respond.min.js}"
+            src="webjars/respond/1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
 </footer>
