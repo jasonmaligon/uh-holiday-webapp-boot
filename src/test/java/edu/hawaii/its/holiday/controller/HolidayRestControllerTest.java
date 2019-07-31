@@ -711,4 +711,19 @@ public class HolidayRestControllerTest {
         assertNotNull(result);
     }
 
+    @Test
+    public void httpGetHolidaysGrid() throws Exception {
+        mockMvc.perform(get("/api/holidaygrid/get?page=1&size=10"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("content", hasSize(10)))
+                .andExpect(jsonPath("last").value("false"))
+                .andExpect(jsonPath("totalPages").value("24"))
+                .andExpect(jsonPath("totalElements").value("235"))
+                .andExpect(jsonPath("size").value("10"))
+                .andExpect(jsonPath("number").value("1"))
+                .andExpect(jsonPath("first").value("false"))
+                .andExpect(jsonPath("numberOfElements").value("10"))
+                .andExpect(jsonPath("content[9].description").value("Memorial Day"));
+    }
+
 }

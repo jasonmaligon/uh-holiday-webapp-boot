@@ -1,11 +1,11 @@
 package edu.hawaii.its.holiday.controller;
 
-import java.util.Locale;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Locale;
 
 @Controller
 public class HomeController {
@@ -33,6 +33,12 @@ public class HomeController {
     @GetMapping(value = "/404")
     public String invalid() {
         return "redirect:/";
+    }
+
+    @GetMapping(value = { "/experimental" })
+    public String holidaygrid() {
+        logger.debug("User at holidaygrid.");
+        return "grid";
     }
 
 }
