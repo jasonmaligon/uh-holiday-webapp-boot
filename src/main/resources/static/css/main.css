@@ -190,4 +190,12 @@ div .panel > .panel-heading {
                                      supported by Chrome and Opera */
 }
 
+.modal-open[style] {
+    padding-right: 0px !important;
+}
+
+.navbar-default[style] {
+    padding-right: 0px !important;
+}
+
 
