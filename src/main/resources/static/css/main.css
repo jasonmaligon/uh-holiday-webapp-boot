@@ -11,7 +11,7 @@
 html {
     position: relative;
     min-height: 100%;
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 }
 
 h3 {
-   color: #BD9319;
+    color: #BD9319;
 }
 
 a {
@@ -35,13 +35,13 @@ a:hover {
 }
 
 td.uh-pre {
-    white-space: pre;           /* CSS 2.0 */
-    white-space: pre-wrap;      /* CSS 2.1 */
-    white-space: pre-line;      /* CSS 3.0 */
-    white-space: -pre-wrap;     /* Opera 4-6 */
-    white-space: -o-pre-wrap;   /* Opera 7 */
+    white-space: pre; /* CSS 2.0 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3.0 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
     white-space: -moz-pre-wrap; /* Mozilla */
-    white-space: -hp-pre-wrap;  /* HP Printers */
+    white-space: -hp-pre-wrap; /* HP Printers */
     display: inline-block;
     word-wrap: break-word;
     word-break: break-all;
@@ -54,6 +54,7 @@ td.uh-pre {
     letter-spacing: 2.2px;
     color: #777;
 }
+
 .uh-branding-two {
     font-family: cormorant-upright-regular, cursive;
     font-size: 0.8em;
@@ -64,23 +65,27 @@ td.uh-pre {
 .navbar {
     background-color: white;
 }
+
 .navbar-fixed-top .nav {
-    padding: 40px 0px 0px 0px;    
+    padding: 40px 0px 0px 0px;
     background-color: white;
 }
+
 .navbar-fixed-top .navbar-brand {
-    padding: 0px 0px 0px 20px;    
+    padding: 0px 0px 0px 20px;
     min-height: 50px;
     min-width: 50px;
 }
+
 .navbar-fixed-top .navbar-brand > img {
     height: 50px;
     width: 50px;
     background-color: transparent;
 }
+
 .navbar-brand.uh-nav-app-name {
     font-family: 'Courier New', Courier;
-    font-size: 14px;    
+    font-size: 14px;
     height: 50px;
     width: auto;
     padding-top: 20px;
@@ -95,7 +100,7 @@ td.uh-pre {
 }
 
 div .panel > .panel-heading {
-    background-color: #f5f8ff;    
+    background-color: #f5f8ff;
 }
 
 .footer {
@@ -109,15 +114,17 @@ div .panel > .panel-heading {
     text-align: center;
 }
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
     body {
         padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
         padding-bottom: 50px;
         background-color: white;
     }
+
     .navbar {
         min-height: 90px;
     }
+
     .navbar-fixed-top .navbar-brand > img {
         position: fixed;
         top: 0px;
@@ -126,6 +133,7 @@ div .panel > .panel-heading {
         width: 90px;
         background-color: transparent;
     }
+
     .navbar-brand.uh-nav-app-name {
         position: fixed;
         top: 0px;
@@ -138,9 +146,11 @@ div .panel > .panel-heading {
         text-align: left;
         background-color: transparent;
     }
+
     .uh-branding-one {
         font-size: 1.8em;
     }
+
     .uh-branding-two {
         font-size: 1.0em;
     }
@@ -167,6 +177,17 @@ div .panel > .panel-heading {
 
 .highlight {
     background-color: #F5F8FF;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                     supported by Chrome and Opera */
 }
 
 

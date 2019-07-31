@@ -1,13 +1,14 @@
 package edu.hawaii.its.holiday.repository;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-
+import edu.hawaii.its.holiday.type.Holiday;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import edu.hawaii.its.holiday.type.Holiday;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 public interface HolidayRepository extends JpaRepository<Holiday, Integer> {
 
@@ -20,4 +21,6 @@ public interface HolidayRepository extends JpaRepository<Holiday, Integer> {
 
     @Query("select distinct h.description from Holiday h order by h.description")
     List<String> findAllDistinctDescription();
+
+    Page<Holiday> findAllByOrderByObservedDateAsc(Pageable var1);
 }

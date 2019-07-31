@@ -7,11 +7,9 @@ import edu.hawaii.its.holiday.util.Dates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -130,4 +128,19 @@ public class HolidayRestController {
                 .ok()
                 .body(data);
     }
+
+    @RequestMapping(value = "/api/holidaygrid/get",
+            //            params = { "page", "size" },
+            params = { "page" },
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public Page<Holiday> findPaginated(
+            //            @RequestParam(value = "page") int page,
+            //            @RequestParam(value = "size") int size
+            @RequestParam(value = "page") int page) {
+        logger.info("Entered REST holidays grid...");
+        //        return holidayService.findPaginatedHdays(page, size);
+        return holidayService.findPaginatedHdaysByYear(page);
+    }
+
 }

@@ -1,4 +1,5 @@
 "use strict";
+
 /*global holidayApp*/
 
 function HolidayJsController($scope, dataProvider) {
@@ -16,7 +17,7 @@ function HolidayJsController($scope, dataProvider) {
         $scope.years.push(year);
         $scope.loadData();
         $scope.showArrow();
-    }
+    };
 
     $scope.loadData = function() {
         dataProvider.loadData(function(d) {
@@ -32,7 +33,7 @@ function HolidayJsController($scope, dataProvider) {
                 return b - a;
             });
         }, url);
-    }
+    };
 
     $scope.searchFilter = function() {
         return function(e) {
@@ -52,22 +53,85 @@ function HolidayJsController($scope, dataProvider) {
             }
             return false;
         };
-    }
+    };
 
     $scope.sortBy = function(column) {
         $scope.orderByField = column;
         $scope.reverseSort = !$scope.reverseSort;
-    }
+    };
 
     $scope.showHoliday = function(holiday) {
         $scope.holiday = holiday;
         $("#holiday").modal();
-    }
+    };
 
     $scope.showArrow = function() {
         $scope.direction = $scope.reverseSort ? "up" : "down";
-    }
+    };
+
+    $scope.nextYear = function() {
+        if ($scope.yearCode < $scope.years[0]) {
+            $scope.yearCode++;
+        }
+        $scope.loadData();
+    };
+
+    $scope.prevYear = function() {
+        if ($scope.yearCode > $scope.years[$scope.years.length - 1]) {
+            $scope.yearCode--;
+        }
+        $scope.loadData();
+    };
+
+    $scope.fastBackward = function() {
+        $scope.yearCode = $scope.years[$scope.years.length - 1];
+    };
+
+    $scope.fastForward = function() {
+        $scope.yearCode = $scope.years[0];
+    };
 }
 
 holidayApp.controller("HolidayJsController", HolidayJsController);
+
+function HolidayGridJsController($scope, holidayJsService) {
+    var options = {
+        pageNumber: 1,
+        pageSize: 10,
+        sort: null
+    };
+
+    holidayJsService.getHolidays(options.pageNumber, options.pageSize).success(function(data) {
+        $scope.gridOptions.data = data.content;
+        $scope.gridOptions.totalItems = data.totalElements;
+    });
+
+    $scope.gridOptions = {
+        paginationPageSizes: [10, 15, 20, 250],
+        paginationPageSize: options.pageSize,
+        enableColumnMenus: false,
+        useExternalPagination: true,
+        columnDefs: [{
+            name: "description"
+        }, {
+            name: "observedDate"
+        }, {
+            name: "officialDate"
+        }],
+        onRegisterApi: function(gridApi) {
+            $scope.gridApi = gridApi;
+            gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
+                options.pageNumber = newPage;
+                options.pageSize = pageSize;
+                holidayJsService.getHolidays(newPage, pageSize).success(function(data) {
+                    $scope.gridOptions.data = data.content;
+                    $scope.gridOptions.totalItems = data.totalElements;
+                });
+            });
+        }
+    };
+
+}
+
+holidayApp.controller("HolidayGridJsController", HolidayGridJsController);
 

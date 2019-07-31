@@ -11,6 +11,8 @@ import edu.hawaii.its.holiday.type.UserRole;
 import edu.hawaii.its.holiday.util.Dates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -171,5 +173,19 @@ public class HolidayServiceImpl implements HolidayService {
     @Override
     public Designation findDesignation(Integer id) {
         return designationRepository.findById(id).get();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Holiday> findPaginatedHdays(final int page, final int size) {
+        return holidayRepository.findAllByOrderByObservedDateAsc(new PageRequest(page, size));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Holiday> findPaginatedHdaysByYear(final int page) {
+        int year = 2006 + page;
+        int size = findHolidaysByYear(year).size();
+        return holidayRepository.findAllByOrderByObservedDateAsc(new PageRequest(page, size));
     }
 }
