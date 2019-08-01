@@ -713,7 +713,7 @@ public class HolidayRestControllerTest {
 
     @Test
     public void httpGetHolidaysGrid() throws Exception {
-        mockMvc.perform(get("/api/holidaygrid/get?page=1&size=10"))
+        MvcResult result = mockMvc.perform(get("/api/holidaygrid/get?page=1&size=10"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("content", hasSize(10)))
                 .andExpect(jsonPath("last").value("false"))
@@ -723,7 +723,9 @@ public class HolidayRestControllerTest {
                 .andExpect(jsonPath("number").value("1"))
                 .andExpect(jsonPath("first").value("false"))
                 .andExpect(jsonPath("numberOfElements").value("10"))
-                .andExpect(jsonPath("content[9].description").value("Memorial Day"));
+                .andExpect(jsonPath("content[9].description").value("Memorial Day"))
+                .andReturn();
+        assertNotNull(result);
     }
 
 }

@@ -23,6 +23,6 @@ holidayApp.service("holidayJsService", ["$http", function($http) {
     }
 
     return {
-        getHolidays: getHolidays
+        getHolidays
     };
 }]);

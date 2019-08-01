@@ -96,7 +96,7 @@ function HolidayGridJsController($scope, holidayJsService) {
         }, {
             name: "officialDate"
         }],
-        onRegisterApi: function(gridApi) {
+        onRegisterApi(gridApi) {
             $scope.gridApi = gridApi;
             gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
                 options.pageNumber = newPage;

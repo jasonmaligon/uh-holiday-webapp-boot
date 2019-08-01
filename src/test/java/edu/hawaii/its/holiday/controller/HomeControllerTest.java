@@ -64,6 +64,13 @@ public class HomeControllerTest {
     }
 
     @Test
+    public void requestGrid() throws Exception {
+        mockMvc.perform(get("/experimental"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("grid"));
+    }
+
+    @Test
     public void requestUrl404() throws Exception {
         mockMvc.perform(get("/404"))
                 .andExpect(status().is3xxRedirection())
@@ -74,12 +81,5 @@ public class HomeControllerTest {
     public void requestNonExistentUrl() throws Exception {
         mockMvc.perform(get("/not-a-url"))
                 .andExpect(status().is4xxClientError());
-    }
-
-    @Test
-    public void holidayGridViaUh() throws Exception {
-        mockMvc.perform(get("/experimental"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("grid"));
     }
 }
