@@ -34,8 +34,7 @@ public class AppConfig {
     @PostConstruct
     public void init() {
         logger.info("AppConfigRun init");
-
-        Assert.isTrue(springDatasourceInitialize == false,
+        Assert.isTrue(!springDatasourceInitialize,
                 "Property 'spring.datasource.initialize' should be false.");
     }
 

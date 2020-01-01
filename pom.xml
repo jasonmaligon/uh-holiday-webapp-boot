@@ -25,8 +25,8 @@
 
         <jquery-version>3.2.0</jquery-version>
         <angularjs-version>1.5.11</angularjs-version>
-        <bootstrap.version>3.4.0</bootstrap.version>
         <angular-mocks-version>1.5.11</angular-mocks-version>
+        <bootstrap.version>3.4.0</bootstrap.version>
     </properties>
 
     <dependencies>
@@ -107,7 +107,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
-            <version>0.36</version>
+            <version>0.37</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -233,13 +233,13 @@
                         <source>classpath/META-INF/resources/webjars/jquery/${jquery-version}/jquery.min.js</source>
                         <source>classpath/META-INF/resources/webjars/bootstrap/${bootstrap.version}/js/bootstrap.min.js</source>
                         <source>classpath/META-INF/resources/webjars/angular-mocks/${angular-mocks-version}/angular-mocks.js</source>
-
                         <source>${basedir}/src/main/resources/static/javascript/holiday.app.js</source>
-                        <source>${basedir}/src/main/resources/static/javascript/holiday.util.js</source>
                         <source>${basedir}/src/main/resources/static/javascript/holiday.service.js</source>
                         <source>${basedir}/src/main/resources/static/javascript/holiday.controller.js</source>
                     </preloadSources>
+                    <!--  
                     <jsTestSrcDir>${basedir}/src/test/resources/javascript</jsTestSrcDir>
+                    -->
                     <specIncludes>
                         <include>**/holiday.controller.holiday.test.js</include>                       
                     </specIncludes>

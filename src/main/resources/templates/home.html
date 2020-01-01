@@ -4,7 +4,6 @@
 <body ng-app="holidayApp">
 <nav th:replace="menubar :: copy"></nav>
 
-
 <!--  Content container -->
 <div class="container" ng-controller="HolidayJsController" data-ng-init="init()">
     <div class="panel panel-default">
@@ -31,18 +30,14 @@
                 <thead>
                 <tr ng-show="filtered.length > 0">
                     <th class="clickable noselect" ng-click="sortBy('description'); showArrow()">
-                        Holiday <span ng-if="orderByField =='description'"><i
-                            class="fa fa-long-arrow-{{direction}}"></i></span>
+                        Holiday <span ng-if="orderByField == 'description'"><i class="fa fa-long-arrow-{{direction}} uh-sort-arrow"></i></span>
                     </th>
                     <th class="clickable noselect" ng-click="sortBy('observedDateFull.toEpochDay'); showArrow()">
-                        Observed <span ng-if="orderByField =='observedDateFull.toEpochDay'"><i
-                            class="fa fa-long-arrow-{{direction}}"></i></span>
+                        Observed <span ng-if="orderByField == 'observedDateFull.toEpochDay'"><i class="fa fa-long-arrow-{{direction}} uh-sort-arrow"></i></span>
                     </th>
                     <th class="clickable noselect" ng-click="sortBy('officialDateFull.toEpochDay'); showArrow()">
-                        Official <span ng-if="orderByField =='officialDateFull.toEpochDay'"><i
-                            class="fa fa-long-arrow-{{direction}}"></i></span>
+                        Official <span ng-if="orderByField == 'officialDateFull.toEpochDay'"><i class="fa fa-long-arrow-{{direction}} uh-sort-arrow"></i></span>
                     </th>
-                    <th class="hidden-sm hidden-xs">Type</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,11 +46,6 @@
                     <td>{{h.description}}</td>
                     <td>{{h.observedDateFull}}</td>
                     <td>{{h.officialDateFull}}</td>
-                    <td class="hidden-sm hidden-xs">
-                        <ul class="type-list">
-                            <li data-ng-repeat="t in h.types">{{t.description}}</li>
-                        </ul>
-                    </td>
                 </tr>
                 </tbody>
             </table>

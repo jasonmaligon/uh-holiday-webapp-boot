@@ -8,3 +8,4 @@ output.txt
 src/main/resources/static/javascript/tsconfig.json
 /.idea
 *.iml
+ruleset.xml

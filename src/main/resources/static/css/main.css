@@ -103,6 +103,10 @@ div .panel > .panel-heading {
     background-color: #f5f8ff;
 }
 
+.uh-sort-arrow {
+    font-size: 1.1rem;
+ }
+
 .footer {
     position: absolute;
     padding-top: 5px;
@@ -116,7 +120,7 @@ div .panel > .panel-heading {
 
 @media (min-width: 768px) {
     body {
-        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+        padding-top: 100px;
         padding-bottom: 50px;
         background-color: white;
     }
@@ -198,4 +202,14 @@ div .panel > .panel-heading {
     padding-right: 0px !important;
 }
 
-
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #F5F8FF;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }

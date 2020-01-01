@@ -1,5 +1,4 @@
 "use strict";
-/*global holidayApp*/
 
 holidayApp.factory("dataProvider", function($http, $log) {
     return {
@@ -14,15 +13,13 @@ holidayApp.factory("dataProvider", function($http, $log) {
 });
 
 holidayApp.service("holidayJsService", ["$http", function($http) {
-    function getHolidays(pageNumber, size) {
-        pageNumber = pageNumber > 0 ? pageNumber - 1 : 0;
-        return $http({
-            method: "GET",
-            url: "api/holidaygrid/get?page=" + pageNumber + "&size=" + size
-        });
-    }
-
     return {
-        getHolidays
+        getHolidays: function(pageNumber, size) {
+            pageNumber = pageNumber > 0 ? pageNumber - 1 : 0;
+            return $http({
+                method: "GET",
+                url: "api/holidaygrid/get?page=" + pageNumber + "&size=" + size
+            });
+        }
     };
 }]);
