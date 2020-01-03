@@ -2,10 +2,12 @@
 
 function HolidayJsController($scope, dataProvider) {
     var url = "api/holidays";
+    var closestUrl = "";
     $scope.years = [];
     $scope.orderByField = "observedDateFull.toEpochDay";
     $scope.reverseSort = false;
     $scope.holidays = [];
+    $scope.closestHoliday = [];
 
     $scope.init = function() {
         var date = new Date();
@@ -13,6 +15,9 @@ function HolidayJsController($scope, dataProvider) {
         $scope.yearCode = year.toString();
         $scope.years = [];
         $scope.years.push(year);
+        $scope.closestDate = $scope.formatDate(date);
+        console.log($scope.closestDate);
+        closestUrl = "api/holidays/closest?date=" + $scope.closestDate + "&search-forward=true&type=uh";
         $scope.loadData();
         $scope.showArrow();
     };
@@ -31,6 +36,11 @@ function HolidayJsController($scope, dataProvider) {
                 return b - a;
             });
         }, url);
+
+        dataProvider.loadData(function(d) {
+            $scope.closestHoliday = d.data;
+            console.log($scope.closestHoliday);
+        }, closestUrl);
     };
 
     $scope.searchFilter = function() {
@@ -66,6 +76,20 @@ function HolidayJsController($scope, dataProvider) {
     $scope.showArrow = function() {
         $scope.direction = $scope.reverseSort ? "up" : "down";
     };
+
+    $scope.formatDate = function(date) {
+        var d = new Date(date);
+        var day = '' + d.getDate();
+        var month = '' + (d.getMonth() + 1);
+        var year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
 }
 
 holidayApp.controller("HolidayJsController", HolidayJsController);
