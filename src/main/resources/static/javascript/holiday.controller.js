@@ -89,7 +89,7 @@ function HolidayJsController($scope, dataProvider) {
         }
 
         return [year, month, day].join("-");
-    }
+    };
 }
 
 holidayApp.controller("HolidayJsController", HolidayJsController);
