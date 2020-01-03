@@ -294,7 +294,7 @@ public class HolidayRestControllerTest {
 
     @Test
     public void httpGetHolidaysByClosest() throws Exception {
-        MvcResult result = mockMvc.perform(get("/api/holidays/closest?date=2019-01-01&search-forward=true&type=uh"))
+        MvcResult result = mockMvc.perform(get("/api/holidays/closest?date=2019-01-01&search-forward=true"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("data.description").value("New Year's Day"))
@@ -305,7 +305,7 @@ public class HolidayRestControllerTest {
                 .andReturn();
         assertNotNull(result);
 
-        result = mockMvc.perform(get("/api/holidays/closest?date=2019-01-02&search-forward=false&type=uh"))
+        result = mockMvc.perform(get("/api/holidays/closest?date=2019-01-02&search-forward=false&"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("data.description").value("New Year's Day"))
@@ -316,7 +316,7 @@ public class HolidayRestControllerTest {
                 .andReturn();
         assertNotNull(result);
 
-        result = mockMvc.perform(get("/api/holidays/closest?date=2019-01-02&search-forward=&type=uh"))
+        result = mockMvc.perform(get("/api/holidays/closest?date=2019-01-02&search-forward="))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("data.description").value("Martin Luther King Jr. Day"))
@@ -327,7 +327,7 @@ public class HolidayRestControllerTest {
                 .andReturn();
         assertNotNull(result);
 
-        result = mockMvc.perform(get("/api/holidays/closest?date=2019-12-25&search-forward=true&type=uh"))
+        result = mockMvc.perform(get("/api/holidays/closest?date=2019-12-25&search-forward=true"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("data.description").value("Christmas"))
@@ -338,10 +338,10 @@ public class HolidayRestControllerTest {
                 .andReturn();
         assertNotNull(result);
 
-        result = mockMvc.perform(get("/api/holidays/closest?date=2019-12-26&search-forward=false&type=state"))
+        result = mockMvc.perform(get("/api/holidays/closest?date=2019-12-26&search-forward=false"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8))
-                .andExpect(jsonPath("data.description").value("Statehood Day"))
+                .andExpect(jsonPath("data.description").value("Christmas"))
                 .andReturn();
         assertNotNull(result);
 
