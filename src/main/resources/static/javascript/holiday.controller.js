@@ -16,7 +16,7 @@ function HolidayJsController($scope, dataProvider) {
         $scope.years = [];
         $scope.years.push(year);
         $scope.closestDate = $scope.formatDate(date);
-        closestUrl = "api/holidays/closest?date=" + $scope.closestDate + "&search-forward=true&type=uh";
+        closestUrl = "api/holidays/closest?date=" + $scope.closestDate + "&search-forward=true";
         $scope.loadData();
         $scope.showArrow();
     };

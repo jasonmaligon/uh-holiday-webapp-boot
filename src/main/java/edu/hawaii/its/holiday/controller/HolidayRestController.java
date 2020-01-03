@@ -113,9 +113,8 @@ public class HolidayRestController {
     @GetMapping(value = "api/holidays/closest")
     public ResponseEntity<JsonData<Holiday>> holidaysByClosest(
             @RequestParam("date") String date,
-            @RequestParam(value = "search-forward", defaultValue = "true", required = false) boolean forward,
-            @RequestParam(value = "type", defaultValue = "uh") String type) {
-        Holiday holiday = holidayService.findClosestHolidayByDate(date, forward, type);
+            @RequestParam(value = "search-forward", defaultValue = "true", required = false) boolean forward) {
+        Holiday holiday = holidayService.findClosestHolidayByDate(date, forward);
         JsonData<Holiday> data = new JsonData<>(holiday);
         return ResponseEntity
                 .ok()
